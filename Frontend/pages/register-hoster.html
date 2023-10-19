@@ -6,106 +6,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apatoliptico - Menu</title>
     <link rel="stylesheet" href="../css/register-hoster.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    <script src="../js/register-hoster.js" defer></script>
 </head>
 
 <body>
     <main>
         <h1>Crie um hospedeiro</h1>
         <form>
-            <input type="number" id="idade">
-            <select id="sexo">
-                <option value="" selected disabled>Selecione sexo</option>
-                <option value=""></option>
-                <option value=""></option>
-            </select>
-            <input type="number" name="" id="peso">
-            <input type="number" name="" id="altura">
-            <select id="">
-                <option value="" selected disabled>Selecione o tipo sanguíneo</option>
-                <option value=""></option>
-                <option value=""></option>
-            </select>
+            <div class="group">
+                <div class="inner-group">
+                    <label for="idade">Idade</label>
+                    <input type="number" name="idade" id="idade">
+                </div>
+                <div class="inner-group">
+                    <label for="sexo">
+                        Selecione o sexo
+                    </label>
+                    <select id="sexo" name="sexo">
+                        <option value="" selected disabled>Selecione ...</option>
+                        <option value="Feminino">Feminino</option>
+                        <option value="Masculino">Masculino</option>
+                    </select>
+                </div>
 
-            <p>Escolha os gostos musicais</p>
+            </div>
 
-            <div class="checkboxes-container">
-                <div>
-                    <input type="checkbox" id="sertanejo" name="sertanejo" value="sertanejo" />
-                    <label for="sertanejo"> Sertanejo</label>
+            <div class="group">
+                <div class="inner-group">
+                    <label for="peso">Peso</label>
+                    <input type="number" name="peso" id="peso">
                 </div>
-                <div>
-                    <input type="checkbox" id="rock" name="rock" value="rock" />
-                    <label for="rock"> Rock </label>
-                </div>
-                <div>
-                    <input type="checkbox" id="rock" name="rock" value="rock" />
-                    <label for="rock"> Funk </label>
-                </div>
-                <div>
-                    <input type="checkbox" id="rock" name="rock" value="rock" />
-                    <label for="rock"> K-POP </label>
-                </div>
-                <div>
-                    <input type="checkbox" id="rock" name="rock" value="rock" />
-                    <label for="rock"> Eletrônica </label>
-                </div>
-                <div>
-                    <input type="checkbox" id="rock" name="rock" value="rock" />
-                    <label for="rock"> Hip Hop </label>
-                </div>
-                <div>
-                    <input type="checkbox" id="rock" name="rock" value="rock" />
-                    <label for="rock"> Pop </label>
-                </div>
-                <div>
-                    <input type="checkbox" id="rock" name="rock" value="rock" />
-                    <label for="rock"> Jazz </label>
-                </div>
-                <div>
-                    <input type="checkbox" id="rock" name="rock" value="rock" />
-                    <label for="rock"> Country </label>
-                </div>
-                <div>
-                    <input type="checkbox" id="rock" name="rock" value="rock" />
-                    <label for="rock"> Clássica </label>
+                <div class="inner-group">
+                    <label for="altura">Altura</label>
+                    <input type="number" name="altura" id="altura">
                 </div>
             </div>
+
+            <div class="group">
+                <div class="inner-group">
+                    <label for="tipo-sanguineo">Tipo Sanguíneo</label>
+                    <select id="tp-sanguineo" name="tipo-sanguineo">
+                        <option value="" selected disabled>Selecione o tipo sanguíneo</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
+                </div>
+                <div class="inner-group">
+                    <label for="jogo-preferido">Jogo preferido</label>
+                    <select name="jogo-preferido" id="jogo">
+                        <option value="">Selecione ...</option>
+                        <option value="CrossFiring">CrossFiring</option>
+                        <option value="Roblox">Roblox</option>
+                        <option value="PUBG">PUBG</option>
+                        <option value="Minecraft">Minecraft</option>
+                        <option value="Lost Ark">Lost Ark</option>
+                        <option value="Counter Strike">Counter Strike</option>
+                        <option value="League of Legends">League of Legends</option>
+                        <option value="EA FC">EA FC</option>
+                    </select>
+                </div>
+            </div>
+
             <p>Escolha os esportes praticados</p>
 
             <div class="checkboxes-container">
-                <div>
-                    <input type="checkbox" id="futebol" name="futebol" value="futebol" />
-                    <label for="futebol"> Futebol</label>
+                <div class="inner-group">
+                    <div>
+                        <input type="checkbox" id="futebol" name="futebol" value="futebol" />
+                        <label for="futebol"> Futebol</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="basquete" name="basquete" value="basquete" />
+                        <label for="basquete"> Basquete </label>
+                    </div>
                 </div>
-                <div>
-                    <input type="checkbox" id="basquete" name="basquete" value="basquete" />
-                    <label for="basquete"> Basquete </label>
+                <div class="inner-group">
+                    <div>
+                        <input type="checkbox" id="volei" name="volei" value="volei" />
+                        <label for="volei"> Vôlei </label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="tenis" name="tenis" value="tenis" />
+                        <label for="tenis"> Tênis </label>
+                    </div>
                 </div>
-                <div>
-                    <input type="checkbox" id="volei" name="volei" value="volei" />
-                    <label for="volei"> Vôlei </label>
-                </div>
-                <div>
-                    <input type="checkbox" id="tenis" name="tenis" value="tenis" />
-                    <label for="tenis"> Tênis </label>
-                </div>
-                <div>
-                    <input type="checkbox" id="tenis" name="tenis" value="tenis" />
-                    <label for="tenis"> Outro </label>
+                <div class="inner-group">
+                    <div>
+                        <input type="checkbox" id="tenis" name="tenis" value="tenis" />
+                        <label for="tenis"> Outro </label>
+                    </div>
                 </div>
             </div>
 
-            <select name="" id="jogo">
-                <option value="">Selecione o jogo preferido</option>
-                <option value="">CrossFiring</option>
-                <option value="">Roblox</option>
-                <option value="">PUBG</option>
-                <option value="">Minecraft</option>
-                <option value="">Lost Ark</option>
-                <option value="">Counter Strike</option>
-                <option value="">League of Legends</option>
-                <option value="">EA FC</option>
-            </select>
+            <button type="submit" id="register-btn">Registrar hospedeiro</button>
 
         </form>
     </main>

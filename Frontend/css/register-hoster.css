@@ -36,7 +36,71 @@ h1:hover {
     color: #f73;
 }
 
-.checkboxes-container{
+p {
+    margin-top: 10px;
+}
+
+label {
+    color: #f73;
+    padding-left: 5px;
+    margin-bottom: 5px;
+}
+
+.checkboxes-container {
+    display: flex;  
+    gap: 10px;
+    margin-top: 5px;
+}
+
+input,
+select,
+option {
+    padding: 5px;
+    color: #000;
+}
+
+button {
+    align-self: end;
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    background-color: #f73;
+    margin-right: 15px;
+    transition: .3s ease;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+button:hover {
+    border: 1px solid #f73;
+    color: #f73;
+    background-color: #fff;
+}
+
+input[type="number"] {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+input:focus, select:focus {
+    outline: none;
+    background-color: rgb(255, 205, 179);
+}
+
+.group {
     display: flex;
     gap: 10px;
+    margin-bottom: 15px;
+}
+
+.inner-group {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
 }

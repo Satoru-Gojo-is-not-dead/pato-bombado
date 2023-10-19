@@ -25,7 +25,6 @@ class HospedeiroDao
                 peso,
                 altura,
                 tipoSanguineo,
-                gostosMusicais,
                 esportesPraticados,
                 jogoPreferido
             ) VALUES (
@@ -34,7 +33,6 @@ class HospedeiroDao
                 :peso,
                 :altura,
                 :tipoSanguineo,
-                :gostosMusicais,
                 :esportesPraticados,
                 :jogoPreferido
             )";
@@ -44,11 +42,10 @@ class HospedeiroDao
             $peso = $hospedeiro->getPeso();
             $altura = $hospedeiro->getAltura();
             $tipoSanguineo = $hospedeiro->getTipoSanguineo();
-            $gostosMusicais = $this->conversorArrayEmString->converterArrayEmString($hospedeiro->getGostosMusicais());
             $esportesPraticados = $this->conversorArrayEmString->converterArrayEmString($hospedeiro->getEsportesPraticados());
             $jogoPreferido = $hospedeiro->getJogoPreferido();
 
-            //var_dump(explode(",", $gostosMusicais));
+            //var_dump(explode(",", $));
 
             $stmt = $this->conn->prepare($query);
 
@@ -57,7 +54,6 @@ class HospedeiroDao
             $stmt->bindParam(":peso", $peso);
             $stmt->bindParam(":altura", $altura);
             $stmt->bindParam(":tipoSanguineo", $tipoSanguineo);
-            $stmt->bindParam(":gostosMusicais", $gostosMusicais);
             $stmt->bindParam(":esportesPraticados", $esportesPraticados);
             $stmt->bindParam(":jogoPreferido", $jogoPreferido);
 

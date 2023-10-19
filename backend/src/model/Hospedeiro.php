@@ -9,7 +9,6 @@ class Hospedeiro
     private float $peso;
     private float $altura;
     private string $tipoSanguineo;
-    private array $gostosMusicais;
     private array $esportesPraticados;
     private string $jogoPreferido;
 
@@ -19,7 +18,6 @@ class Hospedeiro
         float $peso,
         float $altura,
         string $tipoSanguineo,
-        array $gostosMusicais,
         array $esportesPraticados,
         string $jogoPreferido
     ) {
@@ -28,7 +26,6 @@ class Hospedeiro
         $this->peso = $peso;
         $this->altura = $altura;
         $this->tipoSanguineo = $tipoSanguineo;
-        $this->gostosMusicais = $gostosMusicais;
         $this->esportesPraticados = $esportesPraticados;
         $this->jogoPreferido = $jogoPreferido;
     }
@@ -56,11 +53,6 @@ class Hospedeiro
     public function getTipoSanguineo(): string
     {
         return $this->tipoSanguineo;
-    }
-
-    public function getGostosMusicais(): array
-    {
-        return $this->gostosMusicais;
     }
 
     public function getEsportesPraticados(): array

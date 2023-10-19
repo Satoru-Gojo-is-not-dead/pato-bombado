@@ -20,11 +20,10 @@ class CadastrarHospedeiroController
         string $peso,
         string $altura,
         string $tipoSanguineo,
-        string|array $gostosMusicais,
         string|array $esportesPraticados,
         string $jogoPreferido,
     ) {
-        if (!is_array($gostosMusicais) && !is_array($esportesPraticados)) {
+        if (!is_array($esportesPraticados)) {
             throw new \Exception();
         }
 
@@ -34,7 +33,6 @@ class CadastrarHospedeiroController
             (float) $peso,
             (float) $altura,
             $tipoSanguineo,
-            (array) $gostosMusicais,
             (array) $esportesPraticados,
             $jogoPreferido,
         );

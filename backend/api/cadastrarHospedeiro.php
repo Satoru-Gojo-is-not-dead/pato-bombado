@@ -11,11 +11,11 @@ if (
     !isset($_POST["peso"]) ||
     !isset($_POST["altura"]) ||
     !isset($_POST["tipoSanguineo"]) ||
-    !isset($_POST["gostosMusicais"]) ||
     !isset($_POST["esportesPraticados"]) ||
     !isset($_POST["jogoPreferido"]) ||
     !isset($conn)
 ) {
+    var_dump('a');
     http_response_code(400);
     echo "Oooopa meu consagrado(a), ocorreu um erro por aqui. Tenta de novo ai!";
     exit();
@@ -26,7 +26,6 @@ $sexo = $_POST["sexo"];
 $peso = $_POST["peso"];
 $altura = $_POST["altura"];
 $tipoSanguineo = $_POST["tipoSanguineo"];
-$gostosMusicais = $_POST["gostosMusicais"];
 $esportesPraticados = $_POST["esportesPraticados"];
 $jogoPreferido = $_POST["jogoPreferido"];
 
@@ -41,7 +40,6 @@ try {
         $peso,
         $altura,
         $tipoSanguineo,
-        $gostosMusicais,
         $esportesPraticados,
         $jogoPreferido,
     );
