@@ -23,21 +23,21 @@ class CadastrarHospedeiroController
         string|array $esportesPraticados,
         string $jogoPreferido,
     ) {
-        if (!is_array($esportesPraticados)) {
-            throw new \Exception();
+        if (is_array($esportesPraticados) || empty($esportesPraticados)) {
+            $hospedeiro = new Hospedeiro(
+                $idade,
+                $sexo,
+                (float) $peso,
+                (float) $altura,
+                $tipoSanguineo,
+                (empty($esportesPraticados)) ? null : (array) $esportesPraticados,
+                (empty($jogoPreferido)) ? null : $jogoPreferido,
+            );
+
+            return $hospedeiro;
         }
 
-        $hospedeiro = new Hospedeiro(
-            $idade,
-            $sexo,
-            (float) $peso,
-            (float) $altura,
-            $tipoSanguineo,
-            (array) $esportesPraticados,
-            $jogoPreferido,
-        );
-
-        return $hospedeiro;
+        throw new \Exception();
     }
 
     public function salvarHospedeiroNoBanco(Hospedeiro $hospedeiro): bool

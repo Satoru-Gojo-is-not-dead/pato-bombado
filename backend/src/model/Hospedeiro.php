@@ -4,13 +4,14 @@ namespace src\model;
 
 class Hospedeiro
 {
+    private ?int $id;
     private int $idade;
     private string $sexo;
     private float $peso;
     private float $altura;
     private string $tipoSanguineo;
-    private array $esportesPraticados;
-    private string $jogoPreferido;
+    private ?array $esportesPraticados;
+    private ?string $jogoPreferido;
 
     public function __construct(
         int $idade,
@@ -18,8 +19,8 @@ class Hospedeiro
         float $peso,
         float $altura,
         string $tipoSanguineo,
-        array $esportesPraticados,
-        string $jogoPreferido
+        ?array $esportesPraticados,
+        ?string $jogoPreferido
     ) {
         $this->idade = $idade;
         $this->sexo = $sexo;
@@ -28,6 +29,14 @@ class Hospedeiro
         $this->tipoSanguineo = $tipoSanguineo;
         $this->esportesPraticados = $esportesPraticados;
         $this->jogoPreferido = $jogoPreferido;
+    }
+
+    public function setId(int $id) {
+        $this->id = $id;
+    }
+
+    public function getId() : ?int {
+        return $this->id;
     }
 
     public function getIdade(): int
@@ -55,12 +64,12 @@ class Hospedeiro
         return $this->tipoSanguineo;
     }
 
-    public function getEsportesPraticados(): array
+    public function getEsportesPraticados(): ?array
     {
         return $this->esportesPraticados;
     }
 
-    public function getJogoPreferido(): string
+    public function getJogoPreferido(): ?string
     {
         return $this->jogoPreferido;
     }
