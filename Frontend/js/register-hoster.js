@@ -32,14 +32,12 @@ const registerHopedeiro = async (e) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: credenciais,
+      body:credenciais,
       mode:"same-origin"
     })
     .then(response => {
       console.log(response)
     })
-
-
 }
 
 registerBtn.addEventListener('click', registerHopedeiro)
