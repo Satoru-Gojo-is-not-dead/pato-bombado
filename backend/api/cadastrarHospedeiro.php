@@ -55,6 +55,6 @@ try {
     echo "Hospedeiro cadastrado com sucesso!";
 } catch (\Exception $e) {
     http_response_code(400);
-    echo "Oooopa meu consagrado(a), ocorreu um erro  ao cadastrar o hospedeiro. Tenta de novo ai!";
+    echo $e->getMessage();
     exit();
 }

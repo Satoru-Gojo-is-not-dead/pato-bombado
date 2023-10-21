@@ -63,3 +63,9 @@ INSERT INTO habilidades_pato (idPato, codigoHabilidade, nomeHabilidade, dano) VA
 INSERT INTO habilidades_pato (idPato, codigoHabilidade, nomeHabilidade, dano) VALUES (4, 14, "Patada", 22);
 INSERT INTO habilidades_pato (idPato, codigoHabilidade, nomeHabilidade, dano) VALUES (4, 15, "Três patinhos na lagoa", 23);
 INSERT INTO habilidades_pato (idPato, codigoHabilidade, nomeHabilidade, dano) VALUES (4, 16, "Patality", 27);
+
+CREATE TABLE IF NOT EXISTS player (
+	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+    nickName VARCHAR(32) NOT NULL UNIQUE,
+    nivel INTEGER NOT NULL
+);

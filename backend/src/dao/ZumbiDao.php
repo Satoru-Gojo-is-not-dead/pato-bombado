@@ -55,11 +55,9 @@ class ZumbiDao
 
             return false;
         } catch (\PDOException $th) {
-            throw new \Exception($th->getMessage());
+            throw new \Exception("Ocorreu um erro ao criar o zumbi!");
         }
     }
-
-   
 
     /* public function getAllZumbis(): array
     {

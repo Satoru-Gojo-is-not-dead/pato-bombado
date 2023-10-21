@@ -40,7 +40,7 @@ class PatoDao
 
             return $dadosPato;
         } catch (\PDOException $th) {
-            throw new \Exception($th->getMessage());
+            throw new \Exception("Ocorreu um erro ao buscar o pato! Tente novamente");
         }
     }
 }

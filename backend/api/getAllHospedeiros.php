@@ -23,6 +23,6 @@ try {
     echo json_encode($hospedeiros);
 } catch (\Exception $th) {
     http_response_code(400);
-    echo "Oooopa meu consagrado(a), ocorreu um erro ao buscar os hospedeiros aqui. Tenta de novo ai!";
+    echo $th->getMessage();
     exit();
 }

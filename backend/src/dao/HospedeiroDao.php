@@ -63,7 +63,7 @@ class HospedeiroDao
 
             return false;
         } catch (\PDOException $th) {
-            throw new \Exception($th->getMessage());
+            throw new \Exception("Ocorreu um erro ao salvar o hospedeiro! Tente novamente");
         }
     }
 
@@ -84,7 +84,7 @@ class HospedeiroDao
 
             return $dadosHospedeiro;
         } catch (\PDOException $th) {
-            throw new \Exception($th->getMessage());
+            throw new \Exception("Ocorreu um erro ao buscar um hospedeiro-zumbi!");
         }
     }
 
@@ -103,7 +103,7 @@ class HospedeiroDao
         } catch (\PDOException $th) {
             throw new \Exception($th->getMessage());
         } catch (\Exception $th) {
-            throw new \Exception($th->getMessage());
+            throw new \Exception("Ocorreu um erro ao buscar todos os hospedeiros! Tente novamente");
         }
     }
 

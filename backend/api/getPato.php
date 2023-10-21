@@ -6,9 +6,6 @@ require_once("../helpers/autoload.php");
 require_once("../helpers/connection.php");
 
 if (!isset($conn) || !isset($_GET["idPato"])) {
-
-    var_dump($_GET);
-
     http_response_code(400);
     echo "Oooopa meu consagrado(a), ocorreu um erro ao buscar o pato aqui. Tenta de novo ai!";
     exit();
