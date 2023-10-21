@@ -52,7 +52,7 @@ const botao = document.querySelector("#botao")
     })
 }) */
 
-botao.addEventListener("click", function() {
+/* botao.addEventListener("click", function() {
   $.ajax({
       url: "backend/api/getZumbi.php",
       method: "GET",
@@ -62,4 +62,50 @@ botao.addEventListener("click", function() {
     }).fail(function(error) {
       console.log(error.responseText)
     })
+}) */
+/* 
+botao.addEventListener("click", function() {
+  let idPato = 5
+
+  $.ajax({
+      url: `backend/api/getPato.php?idPato=${idPato}`,
+      method: "GET",
+      success: function( result ) {
+        console.log(result)
+      }
+    }).fail(function(error) {
+      console.log(error.responseText)
+    })
+})
+ */
+
+
+/* botao.addEventListener("click", function() {
+  $.ajax({
+      url: `backend/api/getAllPatos.php`,
+      method: "GET",
+      success: function( result ) {
+        console.log(result)
+      }
+    }).fail(function(error) {
+      console.log(error.responseText)
+    })
+})
+ */
+
+botao.addEventListener("click", function () {
+  let data = {
+    "nickName": "Felipe"
+  }
+
+  $.ajax({
+    url: `backend/api/startGame.php`,
+    method: "POST",
+    data: data,
+    success: function (result) {
+      console.log(result)
+    }
+  }).fail(function (error) {
+    console.log(error.responseText)
+  })
 })
