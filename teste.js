@@ -52,9 +52,23 @@ const botao = document.querySelector("#botao")
     })
 }) */
 
-botao.addEventListener("click", function() {
+/* botao.addEventListener("click", function() {
   $.ajax({
       url: "backend/api/getZumbi.php",
+      method: "GET",
+      success: function( result ) {
+        console.log(result)
+      }
+    }).fail(function(error) {
+      console.log(error.responseText)
+    })
+}) */
+
+botao.addEventListener("click", function() {
+  let idPato = 4
+
+  $.ajax({
+      url: `backend/api/getPato.php?idPato=${idPato}`,
       method: "GET",
       success: function( result ) {
         console.log(result)
