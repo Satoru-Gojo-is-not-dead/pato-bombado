@@ -8,7 +8,12 @@ use src\utilities\GetterLastId;
 require_once("../helpers/autoload.php");
 require_once("../helpers/connection.php");
 
-if (!isset($conn) || !isset($_POST["nickName"])) {
+header('Content-Type: application/json');
+
+$jsonData = file_get_contents('php://input');
+$data = json_decode($jsonData, true);
+
+if (!isset($conn) || !isset($data["nickName"])) {
     http_response_code(400);
     echo "Oooopa meu consagrado(a), ocorreu um erro ao iniciar o jogo!";
     exit();
@@ -20,7 +25,7 @@ $getterLastId = new GetterLastId($conn);
 $startGameController = new StartGameController($playerDao, $getterLastId);
 
 try {
-    $player = $startGameController->getPlayer($_POST["nickName"]);
+    $player = $startGameController->getPlayer($data["nickName"]);
 
     http_response_code(200);
     echo json_encode($startGameController->formarPlayerRetornoRequest($player));

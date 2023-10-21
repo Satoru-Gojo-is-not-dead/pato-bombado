@@ -5,28 +5,35 @@ use src\dao\HospedeiroDao;
 require_once("../helpers/autoload.php");
 require_once("../helpers/connection.php");
 
+header('Content-Type: application/json');
+
+$jsonData = file_get_contents('php://input');
+$data = json_decode($jsonData, true);
+
+var_dump($data);
+
 if (
-    !isset($_POST["idade"]) ||
-    !isset($_POST["sexo"]) ||
-    !isset($_POST["peso"]) ||
-    !isset($_POST["altura"]) ||
-    !isset($_POST["tipoSanguineo"]) ||
-    !isset($_POST["esportesPraticados"]) ||
-    !isset($_POST["jogoPreferido"]) ||
+    !isset($data["idade"]) ||
+    !isset($data["sexo"]) ||
+    !isset($data["peso"]) ||
+    !isset($data["altura"]) ||
+    !isset($data["tipoSanguineo"]) ||
+    !isset($data["esportesPraticados"]) ||
+    !isset($data["jogoPreferido"]) ||
     !isset($conn)
 ) {
+
     http_response_code(400);
     echo "Oooopa meu consagrado(a), ocorreu um erro  ao cadastrar o hospedeiro. Tenta de novo ai!";
     exit();
 }
-
-$idade = $_POST["idade"];
-$sexo = $_POST["sexo"];
-$peso = $_POST["peso"];
-$altura = $_POST["altura"];
-$tipoSanguineo = $_POST["tipoSanguineo"];
-$esportesPraticados = $_POST["esportesPraticados"];
-$jogoPreferido = $_POST["jogoPreferido"];
+$idade = $data["idade"];
+$sexo = $data["sexo"];
+$peso = $data["peso"];
+$altura = $data["altura"];
+$tipoSanguineo = $data["tipoSanguineo"];
+$esportesPraticados = $data["esportesPraticados"];
+$jogoPreferido = $data["jogoPreferido"];
 
 $hospedeiroDao = new HospedeiroDao($conn);
 
@@ -46,6 +53,7 @@ try {
     $hospedeiroFoiSalvoNoBanco = $cadastrarHospedeiroController->salvarHospedeiroNoBanco($hospedeiro);
 
     if (!$hospedeiroFoiSalvoNoBanco) {
+        var_dump('oi');
         http_response_code(400);
         echo "Oooopa meu consagrado(a), ocorreu um erro  ao cadastrar o hospedeiro. Tenta de novo ai!";
         exit();

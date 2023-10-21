@@ -29,11 +29,7 @@ const registerHopedeiro = async (e) => {
 
     fetch("../../backend/api/cadastrarHospedeiro.php", {
       method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body:credenciais,
-      mode:"same-origin"
+      body:JSON.stringify(credenciais),
     })
     .then(response => {
       console.log(response)

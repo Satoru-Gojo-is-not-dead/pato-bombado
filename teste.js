@@ -1,6 +1,6 @@
 const botao = document.querySelector("#botao")
 
-/* botao.addEventListener("click", function() {
+ botao.addEventListener("click", function() {
     let json = {
         "idade": 22,
         "sexo": "Masculino",
@@ -24,7 +24,7 @@ const botao = document.querySelector("#botao")
       }).fail(function(error) {
         console.log(error.responseText)
       })
-}) */
+}) 
 
 /* botao.addEventListener("click", function() {
   let json = {
@@ -93,19 +93,19 @@ botao.addEventListener("click", function() {
 })
  */
 
-botao.addEventListener("click", function () {
-  let data = {
-    "nickName": "Felipe"
-  }
+// botao.addEventListener("click", function () {
+//   let data = {
+//     "nickName": "Felipe"
+//   }
 
-  $.ajax({
-    url: `backend/api/startGame.php`,
-    method: "POST",
-    data: data,
-    success: function (result) {
-      console.log(result)
-    }
-  }).fail(function (error) {
-    console.log(error.responseText)
-  })
-})
+//   $.ajax({
+//     url: `backend/api/startGame.php`,
+//     method: "POST",
+//     data: data,
+//     success: function (result) {
+//       console.log(result)
+//     }
+//   }).fail(function (error) {
+//     console.log(error.responseText)
+//   })
+// })
