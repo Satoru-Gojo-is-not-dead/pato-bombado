@@ -27,16 +27,18 @@ const registerHopedeiro = async (e) => {
         }
     })
 
-    $.ajax({
-        url: "../../backend/api/cadastrarHospedeiro.php",
-        data: credenciais,
-        method: "POST",
-        success: function( response ) {
-          console.log(response)
-        }
-      }).fail(function(error) {
-        console.log(error)
-      })
+    fetch("../../backend/api/cadastrarHospedeiro.php", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: credenciais,
+      mode:"same-origin"
+    })
+    .then(response => {
+      console.log(response)
+    })
+
 
 }
 
