@@ -4,19 +4,16 @@ namespace src\dao;
 
 use src\model\Hospedeiro;
 use src\utilities\ConversorArray;
-use src\utilities\HospedeiroCreator;
 
 class HospedeiroDao
 {
     private \PDO $conn;
     private ConversorArray $conversorArrayEmString;
-    private HospedeiroCreator $hospedeiroCreator;
 
     public function __construct(\PDO $conn)
     {
         $this->conn = $conn;
         $this->conversorArrayEmString = new ConversorArray();
-        $this->hospedeiroCreator = new HospedeiroCreator();
     }
 
     public function insertHospedeiro(Hospedeiro $hospedeiro): bool
@@ -39,7 +36,7 @@ class HospedeiroDao
                 :esportesPraticados,
                 :jogoPreferido
             )";
-            
+
             $idade = $hospedeiro->getIdade();
             $sexo = $hospedeiro->getSexo();
             $peso = $hospedeiro->getPeso();
@@ -70,7 +67,8 @@ class HospedeiroDao
         }
     }
 
-    public function getHospedeiroAleatorio() : Hospedeiro {
+    public function getHospedeiroAleatorio(): ?array
+    {
         try {
             $query = "SELECT * FROM hospedeiro ORDER BY RAND() LIMIT 1";
 
@@ -80,18 +78,18 @@ class HospedeiroDao
 
             $dadosHospedeiro = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-            $hospedeiro = $this->hospedeiroCreator->criarHospedeiroModel($dadosHospedeiro);
+            if (!is_array($dadosHospedeiro)) {
+                return null;
+            }
 
-            return $hospedeiro;
+            return $dadosHospedeiro;
         } catch (\PDOException $th) {
             throw new \Exception($th->getMessage());
-        } catch (\Exception $th) {
-            throw new \Exception($th->getMessage());
         }
-
     }
 
-    public function getAllHospedeiros() : array {
+    public function getAllHospedeiros(): array
+    {
         try {
             $query = "SELECT * FROM hospedeiro";
 
@@ -110,8 +108,9 @@ class HospedeiroDao
     }
 
     // helper
-    private function getEsportesPraticados(?array $esportesPraticados) : ?string {
-        return ($esportesPraticados != null) ? 
+    private function getEsportesPraticados(?array $esportesPraticados): ?string
+    {
+        return ($esportesPraticados != null) ?
             $this->conversorArrayEmString->converterArrayEmString(
                 $esportesPraticados
             ) : null;

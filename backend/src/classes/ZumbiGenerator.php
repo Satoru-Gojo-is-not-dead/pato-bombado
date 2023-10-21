@@ -20,6 +20,30 @@ class ZumbiGenerator {
         );
     }
 
+    public function definirHabilidadePredominante(Zumbi $zumbi) : String {
+        $forca = $zumbi->getForca();
+        $velocidade = $zumbi->getVelocidade();
+        $inteligencia = $zumbi->getInteligencia();
+
+        if ($forca == 100 && $velocidade == 100 && $inteligencia == 100) {
+            return "GANADO";
+        }
+
+        if ($forca >= $velocidade && $forca >= $inteligencia) {
+            return "FORCA";
+        }
+
+        if ($velocidade > $forca && $velocidade > $inteligencia) {
+            return "VELOCIDADE";
+        }
+
+        if ($inteligencia > $forca && $inteligencia >= $velocidade) {
+            return "INTELIGENCIA";
+        }
+
+        return "RANDOM";
+    }
+
     private function definirForca(Hospedeiro $hospedeiro) : int {
         $forca = 0;
 

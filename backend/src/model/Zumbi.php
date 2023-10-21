@@ -8,6 +8,7 @@ class Zumbi {
     private int $forca;
     private int $velocidade;
     private int $inteligencia;
+    private int $hp = 100;
 
     public function __construct(
         int $idHospedeiro,
@@ -44,5 +45,21 @@ class Zumbi {
 
     public function getInteligencia(): int {
         return $this->inteligencia;
+    }
+
+    public function restaurarVida() {
+        $this->hp = 100;
+    }
+
+    public function reduzirVida(int $vidaASerReduzida) {
+        $this->hp -= $vidaASerReduzida;
+
+        if ($this->hp < 0) {
+            $this->hp = 0;
+        }
+    }
+
+    public function getHp() : int {
+        return $this->hp;
     }
 }

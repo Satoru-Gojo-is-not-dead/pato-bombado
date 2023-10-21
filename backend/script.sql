@@ -2,8 +2,6 @@ CREATE DATABASE IF NOT EXISTS apatolipse;
 
 USE apatolipse;
 
-DROP TABLE hospedeiro;
-
 CREATE TABLE IF NOT EXISTS hospedeiro(
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
     idade INTEGER NOT NULL,
@@ -13,4 +11,14 @@ CREATE TABLE IF NOT EXISTS hospedeiro(
     tipoSanguineo VARCHAR(5) NOT NULL,
     esportesPraticados VARCHAR(300),
     jogoPreferido VARCHAR(100)
+);
+
+CREATE TABLE IF NOT EXISTS zumbi (
+  id INTEGER PRIMARY KEY AUTO_INCREMENT,
+  idHospedeiro INTEGER NOT NULL,
+  forca INTEGER NOT NULL,
+  velocidade INTEGER NOT NULL,
+  inteligencia INTEGER NOT NULL,
+  hp INTEGER NOT NULL,
+  FOREIGN KEY (idHospedeiro) REFERENCES hospedeiro(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
