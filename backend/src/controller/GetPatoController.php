@@ -30,7 +30,7 @@ class GetPatoController
 
             if ($dadosPato == null) {
                 throw new \Exception(
-                    "Nenhum pato cadastrado!",
+                    "Pato não cadastrado!",
                 );
             }
 

@@ -63,12 +63,26 @@ const botao = document.querySelector("#botao")
       console.log(error.responseText)
     })
 }) */
-
+/* 
 botao.addEventListener("click", function() {
-  let idPato = 4
+  let idPato = 5
 
   $.ajax({
       url: `backend/api/getPato.php?idPato=${idPato}`,
+      method: "GET",
+      success: function( result ) {
+        console.log(result)
+      }
+    }).fail(function(error) {
+      console.log(error.responseText)
+    })
+})
+ */
+
+
+botao.addEventListener("click", function() {
+  $.ajax({
+      url: `backend/api/getAllPatos.php`,
       method: "GET",
       success: function( result ) {
         console.log(result)

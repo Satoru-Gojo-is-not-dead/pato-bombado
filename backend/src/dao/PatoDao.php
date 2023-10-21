@@ -43,34 +43,4 @@ class PatoDao
             throw new \Exception($th->getMessage());
         }
     }
-
-    public function getAllPatos(): array
-    {
-        try {
-            $query = "
-                SELECT 
-                    p.id, 
-                    p.nome, 
-                    p.hp, 
-                    p.escudoEstaAtivo, 
-                    hp.codigoHabilidade, 
-                    hp.nomeHabilidade, 
-                    hp.dano
-                FROM pato as p INNER JOIN habilidades_pato as hp
-                ON p.id = hp.idPato LIMIT 16
-            ";
-
-            $stmt = $this->conn->prepare($query);
-
-            $stmt->execute();
-
-            $dadosPatos = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-
-            return $dadosPatos;
-        } catch (\PDOException $th) {
-            throw new \Exception($th->getMessage());
-        } catch (\Exception $th) {
-            throw new \Exception($th->getMessage());
-        }
-    }
 }
