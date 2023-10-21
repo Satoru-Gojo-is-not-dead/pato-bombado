@@ -14,9 +14,6 @@ body {
 main {
     width: 100%;
     height: 100vh;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,7 +23,6 @@ main {
 
 h1 {
     font-size: 3rem;
-    text-decoration: underline;
     transition: .3s ease;
     cursor: default;
 }
@@ -36,16 +32,15 @@ h1:hover {
 }
 
 form {
-    width: 30%;
     display: flex;
-    flex-direction: column;
     gap: 10px;
+    justify-content: center;
 }
 
 input {
-    width: 50%;
     padding: 10px 15px;
     border-radius: 10px;
+    color: #000;
 }
 
 input:focus {
@@ -59,18 +54,27 @@ button {
 }
 
 button {
-    align-self: end;
-    padding: 10px 15px;
+    padding: 10px;
     border-radius: 10px;
     border: 1px solid transparent;
     background-color: #f73;
     margin-right: 15px;
     transition: .3s ease;
     cursor: pointer;
+    align-self: end;
 }
 
 button:hover {
     border: 1px solid #f73;
     color: #f73;
     background-color: #fff;
+}
+
+label {
+    padding-left: 5px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
 }

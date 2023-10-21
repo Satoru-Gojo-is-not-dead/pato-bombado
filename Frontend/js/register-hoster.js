@@ -32,7 +32,9 @@ const registerHopedeiro = async (e) => {
       body:JSON.stringify(credenciais),
     })
     .then(response => {
-      console.log(response)
+      if(response.ok){
+        location.reload()
+      }
     })
 }
 
