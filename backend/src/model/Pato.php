@@ -33,8 +33,24 @@ class Pato
         return $this->nome;
     }
 
+    public function setHp(int $hp) {
+        $this->hp = $hp;
+    }
+
     public function getHp(): int {
         return $this->hp;
+    }
+
+    public function restaurarVida() {
+        $this->hp = 100;
+    }
+
+    public function reduzirHp(int $hpASerReduzido) {
+        $this->hp -= $hpASerReduzido;
+
+        if ($this->hp < 0) {
+            $this->hp = 0;
+        }
     }
 
     public function ativarEscudoPato() {

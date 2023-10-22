@@ -1,6 +1,7 @@
 <?php
 
 namespace src\dao;
+use src\model\Pato;
 
 class PatoDao
 {
@@ -18,7 +19,7 @@ class PatoDao
                 SELECT 
                     p.id, 
                     p.nome, 
-                    p.hp, 
+                    p.healthPoints, 
                     p.escudoEstaAtivo, 
                     hp.codigoHabilidade, 
                     hp.nomeHabilidade, 
@@ -41,6 +42,32 @@ class PatoDao
             return $dadosPato;
         } catch (\PDOException $th) {
             throw new \Exception("Ocorreu um erro ao buscar o pato! Tente novamente");
+        }
+    }
+
+    public function updatePato(Pato $pato) : bool {
+        try {
+            $query = "UPDATE pato SET escudoEstaAtivo = :escudoEstaAtivo, healthPoints = :healthPoints WHERE id = :id";
+
+            $hp = $pato->getHp();
+            $escudoEstaAtivo = ($pato->getEscudoEstaAtivo()) ? "1" : "0";
+            $id = $pato->getId();
+
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->bindParam(":healthPoints", $hp);
+            $stmt->bindParam(":escudoEstaAtivo", $escudoEstaAtivo);
+            $stmt->bindParam(":id", $id);
+
+            $stmt->execute();
+
+            if ($stmt->rowCount() > 0) {
+                return true;
+            }
+
+            return false;
+        } catch (\PDOException $th) {
+            throw new \Exception("Ocorreu um erro ao atualizar as informações do pato! Tente novamente");
         }
     }
 }

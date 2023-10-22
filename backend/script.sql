@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS zumbi (
 CREATE TABLE IF NOT EXISTS pato (
 	id INTEGER PRIMARY KEY,
     nome VARCHAR(20) NOT NULL UNIQUE,
-    hp INTEGER NOT NULL,
+    healthPoints INTEGER NOT NULL,
     escudoEstaAtivo CHAR(1) NOT NULL
 );
 
@@ -39,10 +39,10 @@ CREATE TABLE IF NOT EXISTS habilidades_pato (
     FOREIGN KEY (idPato) REFERENCES pato(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-INSERT INTO pato (id, nome, hp, escudoEstaAtivo) VALUES (1, "Quackin", 100, "0");
-INSERT INTO pato (id, nome, hp, escudoEstaAtivo) VALUES (2, "Nozzle", 100, "0");
-INSERT INTO pato (id, nome, hp, escudoEstaAtivo) VALUES (3, "Ducker", 100, "0");
-INSERT INTO pato (id, nome, hp, escudoEstaAtivo) VALUES (4, "Wingson", 100, "0");
+INSERT INTO pato (id, nome, healthPoints, escudoEstaAtivo) VALUES (1, "Quackin", 100, "0");
+INSERT INTO pato (id, nome, healthPoints, escudoEstaAtivo) VALUES (2, "Nozzle", 100, "0");
+INSERT INTO pato (id, nome, healthPoints, escudoEstaAtivo) VALUES (3, "Ducker", 100, "0");
+INSERT INTO pato (id, nome, healthPoints, escudoEstaAtivo) VALUES (4, "Wingson", 100, "0");
 
 INSERT INTO habilidades_pato (idPato, codigoHabilidade, nomeHabilidade, dano) VALUES (1, 1, "Bicada feroz", 15);
 INSERT INTO habilidades_pato (idPato, codigoHabilidade, nomeHabilidade, dano) VALUES (1, 2, "Investida Mor", 18);

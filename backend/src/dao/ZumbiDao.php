@@ -59,6 +59,50 @@ class ZumbiDao
         }
     }
 
+    public function getZumbi(int $id) : ?array {
+        try {
+            $query = "SELECT * FROM zumbi WHERE id = :id LIMIT 1";
+
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(":id", $id);
+            $stmt->execute();
+
+            $dadosZumbi = $stmt->fetch(\PDO::FETCH_ASSOC);
+
+            if (!is_array($dadosZumbi)) {
+                return null;
+            }
+
+            return $dadosZumbi;
+        } catch (\PDOException $th) {
+            throw new \Exception("Ocorreu um erro ao buscar o pato! Tente novamente");
+        }
+    }
+
+    public function updateZumbi(Zumbi $zumbi) : bool {
+        try {
+            $query = "UPDATE zumbi SET hp = :hp WHERE id = :id";
+
+            $hp = $zumbi->getHp();
+            $id = $zumbi->getId();
+
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->bindParam(":hp", $hp);
+            $stmt->bindParam(":id", $id);
+
+            $stmt->execute();
+
+            if ($stmt->rowCount() > 0) {
+                return true;
+            }
+
+            return false;
+        } catch (\PDOException $th) {
+            throw new \Exception("Ocorreu um erro ao atualizar as informações do zumbi! Tente novamente");
+        }
+    }
+
     /* public function getAllZumbis(): array
     {
         try {
