@@ -35,6 +35,7 @@ h1:hover, a:hover {
 
 ul {
     list-style: none;
+    text-align: center;
 }
 
 li:not(:last-child) {
