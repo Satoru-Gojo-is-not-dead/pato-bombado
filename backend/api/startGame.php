@@ -1,5 +1,4 @@
 <?php
-use src\controller\GetZumbiController;
 
 use src\controller\StartGameController;
 use src\dao\PlayerDao;

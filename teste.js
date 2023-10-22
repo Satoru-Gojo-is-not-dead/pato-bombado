@@ -1,6 +1,6 @@
 const botao = document.querySelector("#botao")
 
- botao.addEventListener("click", function() {
+ /* botao.addEventListener("click", function() {
     let json = {
         "idade": 22,
         "sexo": "Masculino",
@@ -24,7 +24,7 @@ const botao = document.querySelector("#botao")
       }).fail(function(error) {
         console.log(error.responseText)
       })
-}) 
+})  */
 
 /* botao.addEventListener("click", function() {
   let json = {
@@ -93,7 +93,7 @@ botao.addEventListener("click", function() {
 })
  */
 
-// botao.addEventListener("click", function () {
+/* // botao.addEventListener("click", function () {
 //   let data = {
 //     "nickName": "Felipe"
 //   }
@@ -109,3 +109,56 @@ botao.addEventListener("click", function() {
 //     console.log(error.responseText)
 //   })
 // })
+
+*/
+
+/* botao.addEventListener("click", function () {
+  let data = {
+    "idPato": 3,
+    "idZumbi": 6,
+    "idPlayer": 1,
+    "codigoAtaque": 10,
+  }
+
+  $.ajax({
+    url: `backend/api/batalhar.php`,
+    method: "POST",
+    data: data,
+    success: function (result) {
+      console.log(result)
+    }
+  }).fail(function (error) {
+    console.log(error.responseText)
+  })
+})
+ */
+
+/* botao.addEventListener("click", function () {
+  let data = {
+    "nickName": "Robson",
+  }
+
+  $.ajax({
+    url: `backend/api/resetarNivelPlayer.php`,
+    method: "POST",
+    data: data,
+    success: function (result) {
+      console.log(result)
+    }
+  }).fail(function (error) {
+    console.log(error.responseText)
+  })
+})
+ */
+
+botao.addEventListener("click", function () {
+  $.ajax({
+    url: `backend/api/resetarLifeAllPatos.php`,
+    method: "POST",
+    success: function (result) {
+      console.log(result)
+    }
+  }).fail(function (error) {
+    console.log(error.responseText)
+  })
+})

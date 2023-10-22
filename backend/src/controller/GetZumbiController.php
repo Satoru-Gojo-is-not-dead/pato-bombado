@@ -6,6 +6,7 @@ use src\classes\ZumbiGenerator;
 use src\dao\HospedeiroDao;
 use src\dao\ZumbiDao;
 use src\model\Zumbi;
+use src\utilities\ArrayFormatterRequest;
 use src\utilities\GetterLastId;
 use src\utilities\HospedeiroCreator;
 
@@ -16,6 +17,7 @@ class GetZumbiController
     private ZumbiGenerator $zumbiGenerator;
     private ZumbiDao $zumbiDao;
     private GetterLastId $getterLastId;
+    private ArrayFormatterRequest $arrayFormatterRequest;
 
     public function __construct(
         HospedeiroDao $hospedeiroDao, 
@@ -28,6 +30,7 @@ class GetZumbiController
         $this->zumbiGenerator = new ZumbiGenerator();
         $this->zumbiDao = $zumbiDao;
         $this->getterLastId = $getterLastId;
+        $this->arrayFormatterRequest = new ArrayFormatterRequest();
     }
 
     public function getZumbi(): Zumbi
@@ -74,24 +77,6 @@ class GetZumbiController
     }
 
     public function formarZumbiRetornoRequest(Zumbi $zumbi) : array {
-        $idZumbi = $zumbi->getId();
-        $idHospedeiro = $zumbi->getIdHospedeiro();
-        $forca = $zumbi->getForca();
-        $velocidade = $zumbi->getVelocidade();
-        $inteligencia = $zumbi->getInteligencia();
-        $hp = $zumbi->getHp();
-        $habilidadePredominante = $this->zumbiGenerator->definirHabilidadePredominante($zumbi);
-
-        $z = [
-            "id" => $idZumbi,
-            "idHospedeiro" => $idHospedeiro,
-            "forca" => $forca,
-            "velocidade" => $velocidade,
-            "inteligencia" => $inteligencia,
-            "hp" => $hp,
-            "habilidadePredominante" => $habilidadePredominante,
-        ];
-
-        return $z;
+        return $this->arrayFormatterRequest->formarZumbiRetornoRequest($zumbi);
     }
 }

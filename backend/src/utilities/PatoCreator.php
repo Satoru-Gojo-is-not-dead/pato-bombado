@@ -21,7 +21,7 @@ class PatoCreator {
 
         $idPato = $dadosPato[0]["id"];
         $nomePato = $dadosPato[0]["nome"];
-        $hpPato = $dadosPato[0]["hp"];
+        $hpPato = $dadosPato[0]["healthPoints"];
         $escudoEstaAtivo = ($dadosPato[0]["escudoEstaAtivo"] == "1") ? true : false;
 
         $pato = new Pato($idPato, $nomePato, $hpPato, $escudoEstaAtivo, $habilidadesPato);

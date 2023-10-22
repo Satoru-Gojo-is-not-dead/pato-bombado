@@ -2,15 +2,16 @@
 
 namespace src\controller;
 
-use src\dao\PatoDao;
 use src\dao\PlayerDao;
 use src\model\Player;
+use src\utilities\ArrayFormatterRequest;
 use src\utilities\GetterLastId;
 
 class StartGameController
 {
     private PlayerDao $playerDao;
     private GetterLastId $getterLastId;
+    private ArrayFormatterRequest $arrayFormatterRequest;
 
     public function __construct(
         PlayerDao $playerDao,
@@ -18,9 +19,10 @@ class StartGameController
     ) {
         $this->playerDao = $playerDao;
         $this->getterLastId = $getterLastId;
+        $this->arrayFormatterRequest = new ArrayFormatterRequest();
     }
 
-    public function getPlayer(string $nickName): ?Player
+    public function getPlayer(string $nickName): Player
     {
         try {
             $player = $this->buscarPlayer($nickName);
@@ -77,16 +79,6 @@ class StartGameController
 
     public function formarPlayerRetornoRequest(Player $player): array
     {
-        $idPlayer = $player->getId();
-        $nickName = $player->getNickName();
-        $nivel = $player->getNivel();
-
-        $p = [
-            "id" => $idPlayer,
-            "nickName" => $nickName,
-            "nivel" => $nivel,
-        ];
-
-        return $p;
+        return $this->arrayFormatterRequest->formarPlayerRetornoRequest($player);
     }
 }

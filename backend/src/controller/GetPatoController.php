@@ -4,12 +4,14 @@ namespace src\controller;
 
 use src\dao\PatoDao;
 use src\model\Pato;
+use src\utilities\ArrayFormatterRequest;
 use src\utilities\PatoCreator;
 
 class GetPatoController
 {
     private PatoDao $patoDao;
     private PatoCreator $patoCreator;
+    private ArrayFormatterRequest $arrayFormatterRequest;
 
     public function __construct(
         PatoDao $patoDao, 
@@ -17,6 +19,7 @@ class GetPatoController
     {
         $this->patoDao = $patoDao;
         $this->patoCreator = new PatoCreator();
+        $this->arrayFormatterRequest = new ArrayFormatterRequest();
     }
 
     public function getPato(int $patoId): Pato
@@ -43,31 +46,6 @@ class GetPatoController
     }
 
     public function formarPatoRetornoRequest(Pato $pato) : array {
-        $idPato = $pato->getId();
-        $nomePato = $pato->getNome();
-        $hp = $pato->getHp();
-        $escudoEstaAtivo = $pato->getEscudoEstaAtivo();
-
-        $habilidadesPato = [];
-
-        foreach ($pato->getHabilidadesPato() as $habilidade) {
-            $habilidadePato = [
-                "codigoHabilidade" => $habilidade->getCodigoHabilidade(),
-                "nomeHabilidade" => $habilidade->getNomehabilidade(),
-                "dano" => $habilidade->getDano(),
-            ];
-
-            array_push($habilidadesPato, $habilidadePato);
-        }
-
-        $p = [
-            "id" => $idPato,
-            "nome" => $nomePato,
-            "hp" => $hp,
-            "escudo" => $escudoEstaAtivo,
-            "habilidadesPato" => $habilidadesPato,
-        ];
-
-        return $p;
+        return $this->arrayFormatterRequest->formarPatoRetornoRequest($pato);
     }
 }

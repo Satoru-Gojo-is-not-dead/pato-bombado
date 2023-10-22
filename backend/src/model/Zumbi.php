@@ -51,12 +51,16 @@ class Zumbi {
         $this->hp = 100;
     }
 
-    public function reduzirVida(int $vidaASerReduzida) {
-        $this->hp -= $vidaASerReduzida;
+    public function reduzirHp(int $hpASerReduzido) {
+        $this->hp -= $hpASerReduzido;
 
         if ($this->hp < 0) {
             $this->hp = 0;
         }
+    }
+
+    public function setHp(int $hp) {
+        $this->hp = $hp;
     }
 
     public function getHp() : int {
