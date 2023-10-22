@@ -1,6 +1,6 @@
 const botao = document.querySelector("#botao")
 
- botao.addEventListener("click", function() {
+ /* botao.addEventListener("click", function() {
     let json = {
         "idade": 22,
         "sexo": "Masculino",
@@ -24,7 +24,7 @@ const botao = document.querySelector("#botao")
       }).fail(function(error) {
         console.log(error.responseText)
       })
-}) 
+})  */
 
 /* botao.addEventListener("click", function() {
   let json = {
@@ -133,7 +133,7 @@ botao.addEventListener("click", function() {
 })
  */
 
-botao.addEventListener("click", function () {
+/* botao.addEventListener("click", function () {
   let data = {
     "nickName": "Robson",
   }
@@ -142,6 +142,19 @@ botao.addEventListener("click", function () {
     url: `backend/api/resetarNivelPlayer.php`,
     method: "POST",
     data: data,
+    success: function (result) {
+      console.log(result)
+    }
+  }).fail(function (error) {
+    console.log(error.responseText)
+  })
+})
+ */
+
+botao.addEventListener("click", function () {
+  $.ajax({
+    url: `backend/api/resetarLifeAllPatos.php`,
+    method: "POST",
     success: function (result) {
       console.log(result)
     }

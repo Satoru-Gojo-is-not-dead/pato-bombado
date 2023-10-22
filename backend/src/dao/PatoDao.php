@@ -70,4 +70,24 @@ class PatoDao
             throw new \Exception("Ocorreu um erro ao atualizar as informações do pato! Tente novamente");
         }
     }
+
+    public function resetarVidaPatos(): bool
+    {
+        try {
+            $query = "UPDATE pato SET healthPoints = 100";
+
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->execute();
+
+            if ($stmt->rowCount() > 0) {
+                return true;
+            }
+
+            return false;
+        } catch (\PDOException $th) {
+    
+            throw new \Exception("Ocorreu um erro ao resetar a vida dos patos! Tente novamente");
+        }
+    }
 }
