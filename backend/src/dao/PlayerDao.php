@@ -105,4 +105,26 @@ class PlayerDao
             throw new \Exception("Ocorreu um erro ao atualizar as informações do player! Tente novamente");
         }
     }
+
+    public function resetarNivel(String $nickName): bool
+    {
+        try {
+            $query = "UPDATE player SET nivel = 1 WHERE nickName = :nickName";
+
+            $stmt = $this->conn->prepare($query);
+
+            $stmt->bindParam(":nickName", $nickName);
+
+            $stmt->execute();
+
+            if ($stmt->rowCount() > 0) {
+                return true;
+            }
+
+            return false;
+        } catch (\PDOException $th) {
+    
+            throw new \Exception("Ocorreu um erro ao atualizar as informações do player! Tente novamente");
+        }
+    }
 }
