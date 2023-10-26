@@ -8,11 +8,6 @@ nicknameInput.value = username
 const login = async (e) => {
   e.preventDefault()
 
-  if(username === nicknameInput.value){
-    location.assign('./Frontend/pages/menu.html')
-    return
-  }
-
   const credenciais = {
     "nickName": nicknameInput.value
   }
@@ -27,6 +22,7 @@ const login = async (e) => {
   })
   .then(response => response.json())
   .then(data => {
+    localStorage.setItem('user_id', data['id'])
     localStorage.setItem('username', data['nickName'])
     location.assign('./Frontend/pages/menu.html')
   })

@@ -8,12 +8,17 @@ use src\dao\ZumbiDao;
 require_once("../helpers/autoload.php");
 require_once("../helpers/connection.php");
 
+header('Content-Type: application/json');
+
+$jsonData = file_get_contents('php://input');
+$data = json_decode($jsonData, true);
+
 if (
     !isset($conn) || 
-    !isset($_POST["idPato"]) ||
-    !isset($_POST["idZumbi"]) ||
-    !isset($_POST["idPlayer"]) ||
-    !isset($_POST["codigoAtaque"])
+    !isset($data["idPato"]) ||
+    !isset($data["idZumbi"]) ||
+    !isset($data["idPlayer"]) ||
+    !isset($data["codigoAtaque"])
 ) {
     http_response_code(400);
     echo "
@@ -31,11 +36,11 @@ $zumbiDao = new ZumbiDao($conn);
 $batalharController = new BatalharController($playerDao, $patoDao, $zumbiDao);
 
 try {
-   $player = $batalharController->getPlayer($_POST["idPlayer"]);
-   $pato = $batalharController->getPato($_POST["idPato"]);
-   $zumbi = $batalharController->getZumbi($_POST["idZumbi"]);
+   $player = $batalharController->getPlayer($data["idPlayer"]);
+   $pato = $batalharController->getPato($data["idPato"]);
+   $zumbi = $batalharController->getZumbi($data["idZumbi"]);
 
-   $arrayRetorno = $batalharController->batalhar($player, $pato, $zumbi, $_POST["codigoAtaque"]);
+   $arrayRetorno = $batalharController->batalhar($player, $pato, $zumbi, $data["codigoAtaque"]);
 
    http_response_code(200);
    echo json_encode($arrayRetorno);
