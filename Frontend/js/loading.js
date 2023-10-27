@@ -19,6 +19,10 @@ const requestZombie = async () => {
 
     await fetch("../../backend/api/getZumbi.php", {
         method: "GET",
+        mode: 'same-origin',
+        headers: {
+            "Content-Type": "application/json"
+        }
     })
         .then(response => response.json())
         .then(data => {

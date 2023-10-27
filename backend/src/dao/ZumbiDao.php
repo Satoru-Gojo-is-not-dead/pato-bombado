@@ -19,7 +19,7 @@ class ZumbiDao
     public function insertZumbi(Zumbi $zumbi): bool
     {
         try {
-            $query = "INSERT INTO Zumbi (
+            $query = "INSERT INTO zumbi (
                 idHospedeiro,
                 forca,
                 velocidade,
