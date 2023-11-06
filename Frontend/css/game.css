@@ -49,14 +49,24 @@ h1{
 }
 
 #duck-img {
-    width: 300px;
+    width: 275px;
 }
 
 button {
-    width: 30px;
-    height: 30px;
+    width: 25%;
+    height: 50px;
     padding: 5px;
     cursor: pointer;
+    border: 1px solid  transparent;
+    border-radius: 50px;
+    color: #fff;
+    background-color: #f73;
+}
+
+button:hover {
+    border-color: #f73;
+    color: #f73;
+    background-color: #fff;
 }
 
 button img {

@@ -11,7 +11,7 @@ const messageAnimation = () => {
     }, 3000)
 
     setTimeout(() => {
-        location.assign("./game.html")
+      location.assign("./game.html")
     }, 5000)
 }
 
@@ -26,7 +26,13 @@ const requestZombie = async () => {
     })
         .then(response => response.json())
         .then(data => {
-            localStorage.setItem('zumbi_id', data['id'])
+
+            localStorage.setItem('zumbi', JSON.stringify({
+                'idZumbi': data['id'],
+                'inteligencia': data['inteligencia'],
+                'forca': data['forca'],
+                'velocidade': data['velocidade']
+            }))
         })
 
 }
