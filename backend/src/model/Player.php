@@ -21,6 +21,10 @@ class Player
     public function setId(int $id) {
         $this->id = $id;
     }
+    
+    public function setNivel() {
+        $this->nivel = $this->nivel++;
+    }
 
     public function getId(): ?int
     {

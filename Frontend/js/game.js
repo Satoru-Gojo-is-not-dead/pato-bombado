@@ -59,8 +59,12 @@ const goRound = async ({ target }) => {
 const handleRoundResult = (data) => {
   console.log(data);
 
-  // zombieHp.textContent = data['zumbi']['hp']
-  // duckHp.textContent = data['pato']['hp']
+  if(!data['zumbi']['hp']){
+    console.log('sexo')
+  }
+
+  zombieHp.textContent = data['zumbi']['hp']
+  duckHp.textContent = data['pato']['hp']
 };
 
 renderZombieAttributes();

@@ -88,6 +88,8 @@ class PlayerDao
             $nivel = $player->getNivel();
             $id = $player->getId();
 
+            $nivel++;
+
             $stmt = $this->conn->prepare($query);
 
             $stmt->bindParam(":nivel", $nivel);
