@@ -11,7 +11,15 @@ const zombieSpeed = document.querySelector("#zombie-speed");
 const duckHp = document.querySelector("#duck-hp");
 const zombieHp = document.querySelector("#zombie-hp");
 
+const container = document.querySelectorAll(".container");
+
 const duckImg = document.querySelector("#duck-img");
+
+const mainMenuLink = document.querySelector("#main-menu-link");
+const gameoverMsg = document.querySelector("#gameover");
+const nextLevelLink = document.querySelector("#next-level");
+const winMsg = document.querySelector("#won");
+const smoke = document.querySelector(".fade");
 
 const getDuckHabilities = async () => {
   const data = await fetch(`../../backend/api/getPato.php?idPato=${patoId}`, {
@@ -70,6 +78,12 @@ const goRound = async ({ target }) => {
 const duckWins = async () => {
   const data = localStorage.getItem("playerInfo");
 
+  winMsg.classList.remove("hide");
+  nextLevelLink.classList.remove("hide");
+  smoke.classList.remove("hide");
+  container[0].classList.add("hide");
+  container[1].classList.add("hide");
+
   await fetch("../../backend/api/levelUp.php", {
     method: "POST",
     mode: "same-origin",
@@ -83,6 +97,13 @@ const duckWins = async () => {
 const zombieWins = async () => {
   const data = localStorage.getItem("playerInfo");
 
+  gameoverMsg.classList.remove("hide");
+  mainMenuLink.classList.remove("hide");
+  smoke.style.backgroundColor = 'rgba(17, 230, 17, 0.5) !important';
+  smoke.classList.remove("hide");
+  container[0].classList.add("hide");
+  container[1].classList.add("hide");
+
   await fetch("../../backend/api/resetarNivelPlayer.php", {
     method: "POST",
     mode: "same-origin",
@@ -95,27 +116,33 @@ const zombieWins = async () => {
 
 const handleRoundResult = (data) => {
   if (!data) {
-    return
+    return;
   }
 
   zombieHp.textContent = +zombieHp.textContent - data["danoAplicadoAoZumbi"];
   duckHp.textContent = +duckHp.textContent - data["danoAplicadoAoPato"];
 
   if (+zombieHp.textContent <= 0) {
-    zombieHp.textContent = 0;
     duckWins();
     return;
   }
 
   if (+duckHp.textContent <= 0) {
     duckHp.textContent = 0;
-    zombieWins()
+    zombieWins();
     return;
   }
 };
 
 buttons.forEach((button) => {
   button.addEventListener("click", goRound);
+});
+
+nextLevelLink.addEventListener("click", () => {
+  location.assign("./loading.phtml");
+});
+mainMenuLink.addEventListener("click", () => {
+  location.assign("./menu.phtml");
 });
 
 renderDuckImage();

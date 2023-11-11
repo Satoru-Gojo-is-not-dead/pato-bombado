@@ -11,7 +11,7 @@ const messageAnimation = () => {
     }, 3000)
 
     setTimeout(() => {
-      location.assign("./game.html")
+     location.assign("./game.phtml")
     }, 5000)
 }
 

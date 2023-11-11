@@ -6,9 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Playing - Apatoliptico</title>
-    <link rel="stylesheet" href="../css/toast.css">
-    <link rel="stylesheet" href="../css/game.css">
-    <script src="../js/game.js" defer></script>
+    <link rel="stylesheet" href="../css/toast.css?v=<?php echo date('ymdms');?>">
+    <link rel="stylesheet" href="../css/game.css?v=<?php echo date('ymdms');?>">
 </head>
 
 <body>
@@ -25,7 +24,7 @@
                 <button>
                 </button>
                 <button>
-                </button>
+                    </button>
             </div>
         </div>
         <div class="container">
@@ -40,11 +39,16 @@
         </div>
     </main>
 
-    <div id="toast-container">
-        <img id="toast-img" src="../assets/check.svg">
-        <span id="message">Cadastrado com sucesso!</span>
-    </div>
+    <div class="fade hide"></div>
+    <div class="fadeGreen hide"></div>
+    <p id="gameover" class="hide">Game Over!</p>
+    <p id="main-menu-link" class="hide">Voltar ao início!</p>    
+    
+    
+    <p id="won" class="hide">A luta continua!</p>
+    <p id="next-level" class="hide">Próximo Nível!</p>
 
+    <script src="../js/game.js?v=<?php echo date('ymdms');?>" defer></script>
 </body>
 
 </html>

@@ -24,7 +24,7 @@ const login = async (e) => {
   .then(data => {
     localStorage.setItem('user_id', data['id'])
     localStorage.setItem('username', data['nickName'])
-    location.assign('./Frontend/pages/menu.html')
+    location.assign('./Frontend/pages/menu.phtml')
   })
 }
 

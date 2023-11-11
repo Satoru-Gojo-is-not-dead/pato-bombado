@@ -70,7 +70,7 @@ playBtn.addEventListener("click", async () => {
     }
   })
 
-  location.assign("./loading.html")
+  location.assign("./loading.phtml")
 })
 
 renderDucks()

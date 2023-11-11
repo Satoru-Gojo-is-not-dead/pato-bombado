@@ -33,13 +33,13 @@ const validateForm = () => {
 const registerHopedeiro = async (e) => {
   e.preventDefault();
 
-  const dataOk = validateForm();
+  // const dataOk = validateForm();
 
-  if (!dataOk) {
-    toast.fail("Preencha os campos corretamente");
+  // if (!dataOk) {
+  //   toast.fail("Preencha os campos corretamente");
 
-    return;
-  }
+  //   return;
+  // }
 
   const credenciais = {};
 

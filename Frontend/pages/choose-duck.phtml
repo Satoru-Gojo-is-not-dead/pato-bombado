@@ -5,8 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chose duck - Apatoliptico</title>
-  <link rel="stylesheet" href="../css/choose-duck.css">
-  <script src="../js/choose-duck.js" defer></script>
+  <link rel="stylesheet" href="../css/choose-duck.css?v=<?php echo date('ymdms');?>">
 </head>
 
 <body>
@@ -14,9 +13,9 @@
   <input type="radio" name="duck" id="duck2">
   <input type="radio" name="duck" id="duck3">
   <input type="radio" name="duck" id="duck4">
-
+  
   <h1>Selecione um pato para jogar</h1>
-
+  
   <div class="container">
     <label for="duck1">
       <div class="duck-container">
@@ -79,10 +78,11 @@
       </div>
     </label>
   </div>
-
+  
   <button id="play">
     Jogar
   </button>
+  <script src="../js/choose-duck.js?v=<?php echo date('ymdms');?>" defer></script>
 </body>
 
 </html>
