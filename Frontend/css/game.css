@@ -25,10 +25,10 @@ h1{
 }
 
 .container {
-    padding: 20px;
+    padding: 15px;
     border-radius: 15px;
-    height:450px;
-    width: 405px;
+    height:500px;
+    width: 450px;
     border: 1px solid #fff;
     display: flex;
     flex-direction: column;
@@ -36,6 +36,7 @@ h1{
     color: #fff;
     text-align: center;
     font-size: 20px;
+    position: relative;
 }
 
 #level {
@@ -48,8 +49,11 @@ h1{
     gap: 10px;
 }
 
-#duck-img {
-    width: 275px;
+.img {
+    width: 300px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
 }
 
 button {
@@ -57,10 +61,11 @@ button {
     height: 50px;
     padding: 5px;
     cursor: pointer;
-    border: 1px solid  transparent;
+    border: 3px solid  transparent;
     border-radius: 50px;
     color: #fff;
     background-color: #f73;
+    font-weight: bold;
 }
 
 button:hover {

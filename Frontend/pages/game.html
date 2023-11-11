@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Playing - Apatoliptico</title>
+    <link rel="stylesheet" href="../css/toast.css">
     <link rel="stylesheet" href="../css/game.css">
     <script src="../js/game.js" defer></script>
 </head>
@@ -14,8 +15,8 @@
     <h1>Batalha - Level <span id="level">1</span></h1>
     <main id="game-container">
         <div class="container">
-            Pato: <span id="duck-hp">100 HP</span>
-            <img src="../assets/duck-walking.gif" id="duck-img">
+            <p>Pato: <span id="duck-hp">100 </span> HP</p>
+            <img src="../assets/duck-walking.gif" class="img" id="duck-img">
             <div id="habilities-container">
                 <button>
                 </button>
@@ -28,8 +29,8 @@
             </div>
         </div>
         <div class="container">
-            Zumbi: <span id="zombie-hp">100 HP</span>
-            <img src="../assets/zombie-game.png" id="duck-img">
+            <p>Zumbi: <span id="zombie-hp">100</span> HP</p>
+            <img class="img" src="../assets/zombie-game.png">
             Atributos:
             <div id="habilities-container">
                 <p>Forca <span id="zombie-strength"></span></p>
@@ -38,6 +39,11 @@
             </div>
         </div>
     </main>
+
+    <div id="toast-container">
+        <img id="toast-img" src="../assets/check.svg">
+        <span id="message">Cadastrado com sucesso!</span>
+    </div>
 
 </body>
 

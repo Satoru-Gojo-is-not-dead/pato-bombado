@@ -140,7 +140,6 @@ class BatalharController
         $danoRecebidoPeloPato = $this->batalha->atacarPato($player, $pato, $zumbi);
 
         try {
-            $this->playerDao->updatePlayer($player);
             $this->patoDao->updatePato($pato);
             $this->zumbiDao->updateZumbi($zumbi);
 

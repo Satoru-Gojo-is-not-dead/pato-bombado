@@ -51,7 +51,6 @@ try {
     $hospedeiroFoiSalvoNoBanco = $cadastrarHospedeiroController->salvarHospedeiroNoBanco($hospedeiro);
 
     if (!$hospedeiroFoiSalvoNoBanco) {
-        var_dump('oi');
         http_response_code(400);
         echo "Oooopa meu consagrado(a), ocorreu um erro  ao cadastrar o hospedeiro. Tenta de novo ai!";
         exit();
